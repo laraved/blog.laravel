@@ -36,4 +36,26 @@ class Category extends Model
     {
         return $this->hasMany(self::class, 'parent_id');
     }
+
+    /**
+     * Polymorphic relation with articles.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphToMany
+     */
+    public function articles()
+    {
+        return $this->morphedByMany(Article::class, 'categoryable');
+    }
+
+    /**
+     * Get last categories.
+     *
+     * @param $query
+     * @param $count
+     * @return mixed
+     */
+    public function scopeLastCategories($query, $count)
+    {
+        return $query->latest()->take($count)->get();
+    }
 }

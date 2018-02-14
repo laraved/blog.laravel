@@ -21,14 +21,19 @@
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
+                <ul class="navbar-nav">
+                    <li><a class="nav-link" href="{{ route('admin.index') }}">Panel</a></li>
+                </ul>
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Blog
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -45,7 +50,8 @@
                         <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                         @else
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -55,7 +61,8 @@
                                         Logout
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
                                         @csrf
                                     </form>
                                 </div>
@@ -75,7 +82,7 @@
 <script src="{{ asset('js/app.js') }}"></script>
 <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 <script>
-    CKEDITOR.replace( 'article-ckeditor' );
+    CKEDITOR.replace('article-ckeditor');
 </script>
 </body>
 </html>

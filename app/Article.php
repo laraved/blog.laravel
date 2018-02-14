@@ -36,4 +36,16 @@ class Article extends Model
     {
         return $this->morphToMany(Category::class, 'categoryable');
     }
+
+    /**
+     * Get last articles.
+     *
+     * @param $query
+     * @param $count
+     * @return mixed
+     */
+    public function scopeLastArticles($query, $count)
+    {
+        return $query->latest()->take($count)->get();
+    }
 }
