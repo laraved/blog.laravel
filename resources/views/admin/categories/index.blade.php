@@ -23,10 +23,16 @@
                 <tr>
                     <td>{{ $category->title }}</td>
                     <td>{{ $category->published }}</td>
-                    <td>
-                        <a href="{{ route('admin.category.edit', $category) }}">
-                            <i class="fas fa-pencil-alt"></i>
-                        </a>
+                    <td class="text-right">
+                        <form onsubmit="if(confirm('Delete?')){ return true } else { return false }"
+                                action="{{ route('admin.category.destroy', $category) }}" method="post">
+                            <input type="hidden" name="_method" value="delete">
+                            {{ csrf_field() }}
+                            <a class="btn btn-primary" href="{{ route('admin.category.edit', $category) }}">
+                                <i class="fas fa-pencil-alt"></i>
+                            </a>
+                            <button type="submit" class="btn"><i class="fas fa-trash-alt"></i></button>
+                        </form>
                     </td>
                 </tr>
             @empty
