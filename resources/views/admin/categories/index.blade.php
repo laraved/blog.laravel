@@ -24,7 +24,9 @@
                     <td>{{ $category->title }}</td>
                     <td>{{ $category->published }}</td>
                     <td>
-                        <a href="{{ route('admin.category.edit', ['id' => $category->id]) }}"></a>
+                        <a href="{{ route('admin.category.edit', ['id' => $category->id]) }}">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
                     </td>
                 </tr>
             @empty
