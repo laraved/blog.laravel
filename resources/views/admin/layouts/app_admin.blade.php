@@ -27,15 +27,15 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Blog</a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Categories</a></li>
-                            <li><a href="#">Articles</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Blog
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('admin.category.index') }}">Categories</a>
+                        <a class="dropdown-item" href="{{ route('admin.article.index') }}">Articles</a>
+                    </div>
+                </div>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
